@@ -12,17 +12,19 @@ public class HaiResultGUI {
     private JPanel resultPanel = new JPanel();
     private JLabel resultLabel = new JLabel();
     private JLabel detailLabel = new JLabel();
+    private JTextArea resultTextArea = new JTextArea();
 
 
     public HaiResultGUI(HailResult hailResult) {
         this.hailResult = hailResult;
         setResultFrame();
         setupResultLabel();
-        setupDetailLabel();
+        setResultTextArea();
         setResultPanel();
+        resultTextArea.setEditable(false);
         resultFrame.add(resultPanel);
         resultPanel.add(resultLabel);
-        resultPanel.add(detailLabel);
+        resultPanel.add(resultTextArea);
         resultFrame.setVisible(true);
     }
 
@@ -45,7 +47,7 @@ public class HaiResultGUI {
 
     private void setupResultLabel() {
         resultLabel = new JLabel();
-        resultLabel.setBounds(20, 100, 700, 300);
+        resultLabel.setBounds(30, 50, 700, 100);
         resultLabel.setText(hailResult.toString());
         resultLabel.setForeground(new Color(143, 65, 15));
         resultLabel.setFont(new Font("Hail", Font.BOLD, 13));
@@ -53,10 +55,21 @@ public class HaiResultGUI {
 
     private void setupDetailLabel() {
         detailLabel = new JLabel();
-        detailLabel.setBounds(20, 140, 700, 300);
+        detailLabel.setBounds(20, 100, 700, 300);
         detailLabel.setText(hailResult.resultString());
         //detailLabel.setForeground(new Color(143, 65, 15));
         detailLabel.setFont(new Font("Hail", Font.BOLD, 13));
+    }
+
+    private void setResultTextArea() {
+        resultTextArea.setEditable(false);
+        resultTextArea.setBounds(20, 150, 650, 400);
+        resultTextArea.setText(hailResult.resultString());
+        //detailLabel.setForeground(new Color(143, 65, 15));
+        resultTextArea.setFont(new Font("Hail", Font.BOLD, 13));
+        resultTextArea.setLineWrap(true);
+        resultTextArea.setWrapStyleWord(true);
+
     }
 
 

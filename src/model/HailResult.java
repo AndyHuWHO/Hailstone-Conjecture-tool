@@ -5,10 +5,12 @@ import java.util.ArrayList;
 public class HailResult {
     private ArrayList<Integer> result;
     private int steps;
+    private int integer;
 
     public HailResult(int steps, ArrayList result) {
         this.result = result;
         this.steps = steps;
+        this.integer = (int) result.get(0);
     }
 
 
@@ -19,7 +21,6 @@ public class HailResult {
     public void setSteps(int steps) {
         this.steps = steps;
     }
-
 
 
     public ArrayList<Integer> getResult() {
@@ -34,7 +35,7 @@ public class HailResult {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < result.size(); i++) {
             int num = result.get(i);
-            sb.append(num + "  ");
+            sb.append(num + "    ");
         }
         String stringResult = sb.toString();
         return stringResult;
@@ -43,7 +44,7 @@ public class HailResult {
 
     public String toString() {
         String resultString;
-        resultString = "Integer " + result.get(0) + " was hailed in " + steps + " steps : ";
+        resultString = "Integer " + integer + " was hailed in " + steps + " steps : ";
 
         return resultString;
     }
